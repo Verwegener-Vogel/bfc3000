@@ -14,8 +14,7 @@ TODO: directly attach the metal pin of the sensor to a polished part of the bras
 ###Used hardware
 |Hardware|Requirement|Price|My Source|
 |--------|-----------|----:|------|
-|PIR sensor||<
-$1|[Aliexpress](http://www.aliexpress.com/item/1pcs-High-Quality-HC-SR501-Infrared-PIR-Motion-Sensor-Module-For-Arduino-Raspberry-pi/32558562655.html) |
+|PIR sensor||$1|[Aliexpress](http://www.aliexpress.com/item/1pcs-High-Quality-HC-SR501-Infrared-PIR-Motion-Sensor-Module-For-Arduino-Raspberry-pi/32558562655.html) |
 |OpenLog||$15|Sparkfun|
 |TinyRTC||$0.6|[Aliexpress](http://www.aliexpress.com/item/Free-shipping-20pcs-lot-The-Tiny-RTC-I2C-modules-24C32-memory-DS1307-clock-RTC-module-for/1876368739.html)|
 |Atmel 328P||$2||

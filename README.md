@@ -20,6 +20,11 @@ $1|[Aliexpress](http://www.aliexpress.com/item/1pcs-High-Quality-HC-SR501-Infrar
 |TinyRTC||$0.6|[Aliexpress](http://www.aliexpress.com/item/Free-shipping-20pcs-lot-The-Tiny-RTC-I2C-modules-24C32-memory-DS1307-clock-RTC-module-for/1876368739.html)|
 |Atmel 328P||$2||
 
+###Schematics###
+Downloadable in this repository. Rough version as I the wiring myself.
+![Schematics](https://github.com/barde/bfc3000/raw/master/bfc3000_bb.png)
+
+
 ###Prototype
 ![Prototype with ATMEGA2560 boad](https://github.com/barde/bfc3000/raw/master/protoype.jpg)
 

@@ -26,7 +26,7 @@ Downloadable in this repository. Rough version as I the wiring myself.
 
 
 ###Prototype
-![Prototype with ATMEGA2560 boad](https://github.com/barde/bfc3000/raw/master/protoype.jpg)
+![Prototype with ATMEGA2560 boad](https://github.com/barde/bfc3000/raw/master/prototype.jpg)
 
 Using an ATMEGA2560 for prototyping has the big improvement of multiple serial ports. One for debugging and other for
 the devices, e.g. the OpenLog which communicates over Serial.

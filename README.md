@@ -13,13 +13,13 @@ Gut the solar LED lamp and solder a connector for easy access from the step up c
 As the sensors utilize 5V I keep the power on two separate rails on my perfboard.
 
 ###Used hardware
-|Hardware|Requirement|Price|My Source|
+|Hardware|Note|Price|My Source|
 |--------|-----------|----:|------|
-|PIR sensor||$1|[Aliexpress](http://www.aliexpress.com/item/1pcs-High-Quality-HC-SR501-Infrared-PIR-Motion-Sensor-Module-For-Arduino-Raspberry-pi/32558562655.html) |
-|OpenLog||$15|Sparkfun|
+|PIR sensor|low active so possible to mock with a push button |$1|[Aliexpress](http://www.aliexpress.com/item/1pcs-High-Quality-HC-SR501-Infrared-PIR-Motion-Sensor-Module-For-Arduino-Raspberry-pi/32558562655.html) |
+|OpenLog|any other way to save or log the bird action is fine, e.g. online services or flash rom|$15|Sparkfun|
 |TinyRTC||$0.6|[Aliexpress](http://www.aliexpress.com/item/Free-shipping-20pcs-lot-The-Tiny-RTC-I2C-modules-24C32-memory-DS1307-clock-RTC-module-for/1876368739.html)|
-|Atmel 328P||$2||
-|Solar lamp (including casing and power supply)||$3|[Aliexpress](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Light-Sensor-Waterproof-Outdoor-Fence-Garden-Pathway-Wall-Lamp/32456071230.html)|
+|Atmel 328P|using the bare chip allows us to utilze the full potential of the power saving|$2||
+|Solar lamp|a weather proof nice case and solar rechargable battery power supply|$3|[Aliexpress](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Light-Sensor-Waterproof-Outdoor-Fence-Garden-Pathway-Wall-Lamp/32456071230.html)|
 
 Expect some soldering, reusing old cables and some connectors.
 

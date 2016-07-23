@@ -5,12 +5,21 @@
 Writing a database over multi week time frames. Timestamped entries are written by wild bird's setting off an metal
 touch sensor.
 
-###Required hardware hacks
+###Hardware hacks
 
-####Connect to power source
+####Parasitic casing and power source
 
 Gut the solar LED lamp and solder a connector for easy access from the step up converter to 5V.
 As the sensors utilize 5V I keep the power on two separate rails on my perfboard.
+
+####Connector on base board
+
+The OpenLog and TinyRTC modules are plugged directly from their female header into a male socket. This puts stability
+and reduces cable clutter in the case.
+
+####ICSP header
+
+Even the small space on the board leaves some place for a 6 pin ICSP connector for later reprogramming.
 
 ###Used hardware
 |Hardware|Note|Price|My Source|
@@ -20,6 +29,8 @@ As the sensors utilize 5V I keep the power on two separate rails on my perfboard
 |TinyRTC||$0.6|[Aliexpress](http://www.aliexpress.com/item/Free-shipping-20pcs-lot-The-Tiny-RTC-I2C-modules-24C32-memory-DS1307-clock-RTC-module-for/1876368739.html)|
 |Atmel 328P|using the bare chip allows us to utilze the full potential of the power saving|$2||
 |Solar lamp|a weather proof nice case and solar rechargable battery power supply|$3|[Aliexpress](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Light-Sensor-Waterproof-Outdoor-Fence-Garden-Pathway-Wall-Lamp/32456071230.html)|
+|5V voltage boost||$1||
+|100nf ceramic capacitor|For smoothing out the power spike during runtime|$0.1||
 
 Expect some soldering, reusing old cables and some connectors.
 

@@ -6,10 +6,11 @@ Writing a database over multi week time frames. Timestamped entries are written 
 touch sensor.
 
 ###Required hardware hacks
-Prolonging the metal sensor detection range is essential. I experimented a bit and found out its measurement quality
-decreases using long cables.
 
-TODO: directly attach the metal pin of the sensor to a polished part of the brass feeding pot.
+####Connect to power source
+
+Gut the solar LED lamp and solder a connector for easy access from the step up converter to 5V.
+As the sensors utilize 5V I keep the power on two separate rails on my perfboard.
 
 ###Used hardware
 |Hardware|Requirement|Price|My Source|
@@ -18,6 +19,9 @@ TODO: directly attach the metal pin of the sensor to a polished part of the bras
 |OpenLog||$15|Sparkfun|
 |TinyRTC||$0.6|[Aliexpress](http://www.aliexpress.com/item/Free-shipping-20pcs-lot-The-Tiny-RTC-I2C-modules-24C32-memory-DS1307-clock-RTC-module-for/1876368739.html)|
 |Atmel 328P||$2||
+|Solar lamp (including casing and power supply)||$3|[Aliexpress](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Light-Sensor-Waterproof-Outdoor-Fence-Garden-Pathway-Wall-Lamp/32456071230.html)|
+
+Expect some soldering, reusing old cables and some connectors.
 
 ###Schematics###
 Downloadable in this repository. Rough version as I the wiring myself.
@@ -39,6 +43,13 @@ The solution: a firmware update. You need some TTL converter like FTDI to USB or
 version](http://www.aliexpress.com/item/Free-Shipping-1pcs-FT232RL-FTDI-USB-3-3V-5-5V-to-TTL-Serial-Adapter-Module/32481520135.htm).
 Following [this instruction](https://learn.sparkfun.com/tutorials/openlog-hookup-guide) for reprogramming the on board Atmega328 is straight forward.
 After flashing it flawlessly wrote to the full sized FAT32 partitioned card.
+
+###Power supply
+Due to its size and small expected power consumption it is fit to be powered by a 1.2V NiMh battery. For power
+harvesting I reuse a small [solar powered lamp with an included rechargable
+battery](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Light-Sensor-Waterproof-Outdoor-Fence-Garden-Pathway-Wall-Lamp/32456071230.html).
+Quite nice for $3 as there is lavish space inside for my own sensors and the board. The casing seems
+watertight. I put the step up converter in parallel to the battery and used some left over JST connectors.
 
 ###Power consumption during runtime
 TBD

@@ -1,5 +1,6 @@
 # bfc3000
 ##Watch and analyze your bird's eating habits
+![Schematics](https://github.com/barde/bfc3000/raw/master/overview.png)
 
 ###Aim 
 Writing a database over multi week time frames. Timestamped entries are written by wild bird's setting off an metal

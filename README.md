@@ -21,6 +21,13 @@ and reduces cable clutter in the case.
 
 Even the small space on the board leaves some place for a 6 pin ICSP connector for later reprogramming.
 
+####Using the on-chip 8 MHz oscillator
+
+Some tweaking allow to save the external 16Mhz oscillator.
+[This](https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard) 
+tutorial was tested successfully. There are sources claiming major power saving. No draw backs with this project as
+there are not time critical libraries used.
+
 ###Used hardware
 |Hardware|Note|Price|My Source|
 |--------|-----------|----:|------|

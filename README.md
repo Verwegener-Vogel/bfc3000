@@ -5,10 +5,11 @@
 ###Aim 
 Writing a timestamp over multi week time frames. Timestamped entries are written by wild bird's setting off a motion
 sensor. The timestamps are made up into some kind of diagrams or other visualization.
+The device is power independent through piggybacking on a solar charged battery powered movement detection LED array.
 
 Total cost should be below $50.
 
-###Used hardware                                                                                                                                                                                                                                     The device is power independent through piggybacking on a solar charged battery powered movement detection LED array.
+###Used hardware                                                                                                                                                                                                                                     
 |Hardware|Note|Price|My Source|
 |--------|-----------|----:|------|                                                                                                                                                                                                                  
 |PIR sensor|low active so possible to mock with a push button |$1|[Aliexpress](http://www.aliexpress.com/item/1pcs-High-Quality-HC-SR501-Infrared-PIR-Motion-Sensor-Module-For-Arduino-Raspberry-pi/32558562655.html) |

@@ -3,9 +3,25 @@
 ![Schematics](https://github.com/barde/bfc3000/raw/master/overview.png)
 
 ###Aim 
-Writing a database over multi week time frames. Timestamped entries are written by wild bird's setting off a motion sensor.
+Writing a timestamp over multi week time frames. Timestamped entries are written by wild bird's setting off a motion
+sensor. The timestamps are made up into some kind of diagrams or other visualization.
 
-###Hardware hacks
+Total cost should be below $50.
+
+###Used hardware                                                                                                                                                                                                                                     The device is power independent through piggybacking on a solar charged battery powered movement detection LED array.
+|Hardware|Note|Price|My Source|
+|--------|-----------|----:|------|                                                                                                                                                                                                                  
+|PIR sensor|low active so possible to mock with a push button |$1|[Aliexpress](http://www.aliexpress.com/item/1pcs-High-Quality-HC-SR501-Infrared-PIR-Motion-Sensor-Module-For-Arduino-Raspberry-pi/32558562655.html) |
+|OpenLog & SD card|I had this lying around but any cheap copy is fine|$20|Sparkfun|                                                                                                                                       
+|TinyRTC||$0.6|[Aliexpress](http://www.aliexpress.com/item/Free-shipping-20pcs-lot-The-Tiny-RTC-I2C-modules-24C32-memory-DS1307-clock-RTC-module-for/1876368739.html)|
+|Atmel 328P|using the bare chip allows us to utilze the full potential of the power saving|$2||                                                                                                                                                      
+|Solar lamp|a weather proof nice case and solar rechargable battery power supply|$3|[Aliexpress](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Light-Sensor-Waterproof-Outdoor-Fence-Garden-Pathway-Wall-Lamp/32456071230.html)|
+|5V voltage boost||$1||
+|100nf ceramic capacitor|For smoothing out the power spike during runtime|$0.1||                                                                                                                                                                     
+
+Expect some soldering for the headers and connections.
+
+###Modifications to hardware, software and libs
 
 ####Parasitic casing and power source
 
@@ -28,21 +44,14 @@ Some tweaking allow to save the external 16Mhz oscillator.
 tutorial was tested successfully. There are sources claiming major power saving. No draw backs with this project as
 there are not time critical libraries used.
 
-###Used hardware
-|Hardware|Note|Price|My Source|
-|--------|-----------|----:|------|
-|PIR sensor|low active so possible to mock with a push button |$1|[Aliexpress](http://www.aliexpress.com/item/1pcs-High-Quality-HC-SR501-Infrared-PIR-Motion-Sensor-Module-For-Arduino-Raspberry-pi/32558562655.html) |
-|OpenLog|any other way to save or log the bird action is fine, e.g. online services or flash rom|$15|Sparkfun|
-|TinyRTC||$0.6|[Aliexpress](http://www.aliexpress.com/item/Free-shipping-20pcs-lot-The-Tiny-RTC-I2C-modules-24C32-memory-DS1307-clock-RTC-module-for/1876368739.html)|
-|Atmel 328P|using the bare chip allows us to utilze the full potential of the power saving|$2||
-|Solar lamp|a weather proof nice case and solar rechargable battery power supply|$3|[Aliexpress](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Light-Sensor-Waterproof-Outdoor-Fence-Garden-Pathway-Wall-Lamp/32456071230.html)|
-|5V voltage boost||$1||
-|100nf ceramic capacitor|For smoothing out the power spike during runtime|$0.1||
-
-Expect some soldering, reusing old cables and some connectors.
+####Firmware update for the OpenLog
+Using [this instruction](https://learn.sparkfun.com/tutorials/openlog-hookup-guide) you should update to the newest
+firmware. It is required to use full FAT32 formatted cards.
 
 ###Schematics###
-Downloadable in this repository. Rough version as I the wiring myself.
+Downloadable in this repository. The software used is free and called [Fritzing](http://fritzing.org).
+Not in best shape as there is only one board produced until now.
+
 ![Schematics](https://github.com/barde/bfc3000/raw/master/bfc3000_bb.png)
 
 

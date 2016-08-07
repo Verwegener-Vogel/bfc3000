@@ -26,19 +26,22 @@ Expect some soldering for the headers and connections.
 |--------|-----------|----:|------|                                                                                                                                                                                                                  
 |PIR sensor|low active so possible to mock with a push button |$1|[Aliexpress](http://www.aliexpress.com/item/1pcs-High-Quality-HC-SR501-Infrared-PIR-Motion-Sensor-Module-For-Arduino-Raspberry-pi/32558562655.html) |
 |WeMos D1 ||$4|[Aliexpress](http://www.aliexpress.com/store/1331105) |
-|WeMos battery shield ||$2|[Aliexpress](http://www.aliexpress.com/store/1331105) |
-|WeMos SD card reader ||$1|[Aliexpress](http://www.aliexpress.com/store/1331105) |
+|WeMos battery shield |stackable with other WeMos parts|$2|[Aliexpress](http://www.aliexpress.com/store/1331105) |
+|WeMos SD card reader shield|also stackable|$1|[Aliexpress](http://www.aliexpress.com/store/1331105) |
+|Solar lamp|a weather proof nice case and solar rechargable battery power supply|$3|[Aliexpress](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Light-Sensor-Waterproof-Outdoor-Fence-Garden-Pathway-Wall-Lamp/32456071230.html)|
 
 This is the improved hardware for this project. No need for a RTC as the WeMos seems to be pretty good at keeping time.
 The wireless capability can be used to get the actual time from NTP. Even the Micro SD is not really necessary due
 to pushing the data to some IoT service.
 
-###Modifications to hardware, software and libs for 328 version
+###Modifications to hardware, software and libs
 
 ####Parasitic casing and power source
 
 Gut the solar LED lamp and solder a connector for easy access from the step up converter to 5V.
 As the sensors utilize 5V I keep the power on two separate rails on my perfboard.
+
+###Modifications to hardware, software and libs for 328 version
 
 ####Connector on base board
 

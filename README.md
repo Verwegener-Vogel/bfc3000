@@ -1,6 +1,6 @@
 # bfc3000
-##Watch and analyze your bird's eating habits
-![Schematics](https://github.com/barde/bfc3000/raw/master/overview.png)
+##Watch and analyze your [local wild bird's](https://upload.wikimedia.org/wikipedia/commons/8/86/Eurasian_blue_tit_Lancashire.jpg) eating habits
+![Overview](https://github.com/barde/bfc3000/raw/master/overview.png)
 
 ###Aim 
 Writing a time stamp over multi week time frames. Timestamped entries are written by wild bird's setting off a motion

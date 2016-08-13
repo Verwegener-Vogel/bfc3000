@@ -9,7 +9,6 @@ The device is power independent through piggybacking on a solar charged battery 
 Total cost should be below $50.
 
 ###Usage
-# Usage
 
 You need to check out this repo first:
 
@@ -22,13 +21,30 @@ However, before you compile this sketch you need to create a file
 "config.h" with your own config values like this: 
 
 ```
-   #ifndef WIFI_SSID
-   #define WIFI_SSID "MY-SSID"
-   #endif
+#ifndef WIFI_SSID
+#define WIFI_SSID "MY-WIFI-SSID"
+#endif
 
-   #ifndef WIFI_PASSWORD
-   #define WIFI_PASSWORD "MY-WIFI-PASSWORD"
-   #endif
+#ifndef WIFI_PASSWORD
+#define WIFI_PASSWORD "MY-WIFI-PASSWORD"
+#endif
+
+#ifndef PHANT_HOST
+#define PHANT_HOST "PHANT_HOST"
+#endif
+
+#ifndef PHANT_PORT
+#define PHANT_PORT 80
+#endif
+
+#ifndef PUBLIC_KEY
+#define PUBLIC_KEY "PUBLIC_KEY"
+#endif
+
+#ifndef PRIVATE_KEY
+#define PRIVATE_KEY "PRIVATE_KEY"
+#endif
+
 ```
 
 You have to chose a hardware platform:
@@ -148,3 +164,6 @@ TBD
 
 ###Power consumption during sleep
 TBD
+
+###External Libraries
+[SNTPtime](http://github.org/SensorsIot/SNTPtime)

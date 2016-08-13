@@ -8,6 +8,32 @@ sensor. The timestamps are made up into some kind of diagrams or other visualiza
 The device is power independent through piggybacking on a solar charged battery powered movement detection LED array.
 Total cost should be below $50.
 
+###Usage
+# Usage
+
+You need to check out this repo first:
+
+```
+$ git clone git@github.com:barde/bfc3000.git
+$ cd arduino-wino/sketch_config
+```
+
+However, before you compile this sketch you need to create a file 
+"config.h" with your own config values like this: 
+
+```
+   #ifndef WIFI_SSID
+   #define WIFI_SSID "MY-SSID"
+   #endif
+
+   #ifndef WIFI_PASSWORD
+   #define WIFI_PASSWORD "MY-WIFI-PASSWORD"
+   #endif
+```
+
+You have to chose a hardware platform:
+
+
 ###Different versions and technologies
 
 There are two different versions of this project. It evolved after I got from the prototype to a soldered and fixed

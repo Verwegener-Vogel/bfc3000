@@ -1,7 +1,7 @@
 /*  bfc3000 - partly sophisticated bird feeding measurement
  *  
  *  Glue for sensors to measure bird feeding pattern with a low power embedded board.
- *  Sleeps in deep sleep until the bird is detected by a magnetic metal touch sensor.
+ *  Sleeps in deep sleep until the bird is detected by a PIR sensor.
  *  Writes a timestamp to a SD card for later data analysis.
  *  
  * Sleep code from http://playground.arduino.cc/Learning/ArduinoSleepCode

@@ -8,31 +8,47 @@ sensor. The timestamps are made up into some kind of diagrams or other visualiza
 The device is power independent through piggybacking on a solar charged battery powered movement detection LED array.
 Total cost should be below $50.
 
+###Different versions and technologies
+
+There are two different versions of this project. It evolved after I got from the prototype to a soldered and fixed
+part. The main reasons were the expanded capabilities of the ESP8266. I could save some hardware parts, too.
+
+Todo: More description about:
+Atmel328 with additional hardware for timekeeping and logfile saving local saving version vs ESP8266 with IoT webservice
+connection and on board SNTP.
+
 ###Used hardware for Atmel 328 version
 |Hardware|Note|Price|My Source|
 |--------|-----------|----:|------|                                                                                                                                                                                                                  
 |PIR sensor|low active so possible to mock with a push button |$1|[Aliexpress](http://www.aliexpress.com/item/1pcs-High-Quality-HC-SR501-Infrared-PIR-Motion-Sensor-Module-For-Arduino-Raspberry-pi/32558562655.html) |
 |OpenLog & SD card|I had this lying around but any cheap copy is fine|$20|Sparkfun|                                                                                                                                       
 |TinyRTC||$0.6|[Aliexpress](http://www.aliexpress.com/item/Free-shipping-20pcs-lot-The-Tiny-RTC-I2C-modules-24C32-memory-DS1307-clock-RTC-module-for/1876368739.html)|
-|Atmel 328P|using the bare chip allows us to utilze the full potential of the power saving|$2||                                                                                                                                                      
-|Solar lamp|a weather proof nice case and solar rechargable battery power supply|$3|[Aliexpress](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Light-Sensor-Waterproof-Outdoor-Fence-Garden-Pathway-Wall-Lamp/32456071230.html)|
+|Atmel 328P|using the bare chip allows us to utilize the full potential of the power saving|$2||                                                                                                                                                      
+|Solar lamp|a weather proof nice case and solar rechargeable battery power supply|$3|[Aliexpress](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Light-Sensor-Waterproof-Outdoor-Fence-Garden-Pathway-Wall-Lamp/32456071230.html)|
 |5V voltage boost||$1||
 |100nf ceramic capacitor|For smoothing out the power spike during runtime|$0.1||                                                                                                                                                                     
 
 Expect some soldering for the headers and connections.
 
-###Used hardware for WeMos version
+###Used hardware for ESP8266 version
 |Hardware|Note|Price|My Source|
 |--------|-----------|----:|------|                                                                                                                                                                                                                  
 |PIR sensor|low active so possible to mock with a push button |$1|[Aliexpress](http://www.aliexpress.com/item/1pcs-High-Quality-HC-SR501-Infrared-PIR-Motion-Sensor-Module-For-Arduino-Raspberry-pi/32558562655.html) |
 |WeMos D1 ||$4|[Aliexpress](http://www.aliexpress.com/store/1331105) |
 |WeMos battery shield |stackable with other WeMos parts|$2|[Aliexpress](http://www.aliexpress.com/store/1331105) |
-|WeMos SD card reader shield|also stackable|$1|[Aliexpress](http://www.aliexpress.com/store/1331105) |
-|Solar lamp|a weather proof nice case and solar rechargable battery power supply|$3|[Aliexpress](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Light-Sensor-Waterproof-Outdoor-Fence-Garden-Pathway-Wall-Lamp/32456071230.html)|
+|Solar lamp|a weather proof nice case and solar rechargeable battery power supply|$3|[Aliexpress](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Light-Sensor-Waterproof-Outdoor-Fence-Garden-Pathway-Wall-Lamp/32456071230.html)|
 
 This is the improved hardware for this project. No need for a RTC as the WeMos seems to be pretty good at keeping time.
-The wireless capability can be used to get the actual time from NTP. Even the Micro SD is not really necessary due
+The wireless capability can be used to get the actual time from SNTP. Even the Micro SD is not really necessary due
 to pushing the data to some IoT service.
+
+Noteworthy fact: the deep sleep functionality of the ESP8266/WeMos is **much** easier to use compared to the
+Atmel/Arduino library.
+
+As for learning about this powerful and cheap platform I recommend this insightful [YT
+channel][https://www.youtube.com/channel/UCu7_D0o48KbfhpEohoP7YSQ] in combination with his code: @SensorsIOT
+For a future improvement the upcoming [ESP32][https://espressif.com/en/products/hardware/esp32/overview] will 
+probably be used in combination with the BLE for more power saving.
 
 ###Modifications to hardware, software and libs
 
@@ -69,7 +85,7 @@ Not in best shape as there is only one board produced until now.
 
 ![Schematics](bfc3000_atmega328_bb.png)
 
-###Schematics for WeMos version###
+###Schematics for ESP8266 version###
 Downloadable from [this repository](bfc3000_wemos.fzz).
 
 ![Schematics](bfc3000_wemos_bb.png)

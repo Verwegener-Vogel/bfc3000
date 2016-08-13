@@ -46,8 +46,8 @@ Noteworthy fact: the deep sleep functionality of the ESP8266/WeMos is **much** e
 Atmel/Arduino library.
 
 As for learning about this powerful and cheap platform I recommend this insightful [YT
-channel][https://www.youtube.com/channel/UCu7_D0o48KbfhpEohoP7YSQ] in combination with his code: @SensorsIOT
-For a future improvement the upcoming [ESP32][https://espressif.com/en/products/hardware/esp32/overview] will 
+channel](https://www.youtube.com/channel/UCu7_D0o48KbfhpEohoP7YSQ) in combination with his code: @SensorsIOT
+For a future improvement the upcoming [ESP32](https://espressif.com/en/products/hardware/esp32/overview) will 
 probably be used in combination with the BLE for more power saving.
 
 ###Modifications to hardware, software and libs

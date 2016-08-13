@@ -167,3 +167,4 @@ TBD
 
 ###External Libraries
 [SNTPtime](http://github.org/SensorsIot/SNTPtime)
+[Phant](https://github.com/sparkfun/phant-arduino)

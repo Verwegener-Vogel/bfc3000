@@ -14,7 +14,6 @@ You need to check out this repo first:
 
 ```
 $ git clone git@github.com:barde/bfc3000.git
-$ cd arduino-wino/sketch_config
 ```
 
 However, before you compile this sketch you need to create a file 

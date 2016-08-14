@@ -132,6 +132,10 @@ by this sketch. The service is a RESTful web service and I recommend using the G
 Sparkfun has a in build time stamp functionality. With this feature enable there is even room to scrap the SNTP and use
 the web service's time. The ESP sketch uses both variants.
 
+####Nearest NTP server
+
+For best results you should change the NTP server pool to your nearest location. The default is the German NTP pool.
+
 ###Schematics for 328 version###
 Downloadable from [this repository](bfc3000_atmega328.fzz). The software used is free and called [Fritzing](http://fritzing.org).
 Not in best shape as there is only one board produced until now.
@@ -177,3 +181,8 @@ TBD
 
 ###External Libraries
 [SNTPtime](http://github.org/SensorsIot/SNTPtime)
+
+###Demo
+
+An timezone adjusted output stream is available
+[here](https://data.sparkfun.com/output/jqyY35p6V6COWKOw8q8o?timezone=Europe/Berlin).

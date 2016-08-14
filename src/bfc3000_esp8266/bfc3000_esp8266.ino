@@ -24,7 +24,7 @@
 #include "config.h"
 
 
-SNTPtime NTP("ch.pool.ntp.org");
+SNTPtime NTP("2.de.pool.ntp.org");
 
 /*
    The structure contains following fields:

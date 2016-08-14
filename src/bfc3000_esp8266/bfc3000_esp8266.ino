@@ -17,7 +17,6 @@
 #include <Wire.h>
 #include "RTClib.h"
 #include <ESP8266WiFi.h>
-#include <Phant.h>
 #include <SNTPtime.h>
 
 
@@ -25,7 +24,7 @@
 #include "config.h"
 
 
-SNTPtime NTP("de.pool.ntp.org");
+SNTPtime NTP("ch.pool.ntp.org");
 
 /*
    The structure contains following fields:
@@ -41,6 +40,8 @@ SNTPtime NTP("de.pool.ntp.org");
   boolean valid;
   };
 */
+strDateTime currentDate;
+char timestamp[64];
 
 void setup()
 {
@@ -52,9 +53,24 @@ void setup()
 
 void loop()
 {
+  Serial.println("starting bfc3000");
   connectWiFi();
-  postToPhant(getTime());
+  Serial.println("connected to wifi");
 
+ // set internal clock with SNTP server's time
+  while (!NTP.setSNTPtime()) 
+  {
+      Serial.println("Trying to set time.."); // set internal clock
+  }
+
+  currentDate = NTP.getTime(1.0, 1);
+  sprintf(timestamp,"%04i;%02d;%02d;%02d;%02d;%02d", currentDate.year, currentDate.day, currentDate.month, currentDate.hour, currentDate.minute, currentDate.second);
+  Serial.print("Timestamp: ");
+  Serial.println(timestamp);
+
+  postToPhant();
+  Serial.println("going to sleep");
+  
   // sleep wakes on low edge on RST pin
   ESP.deepSleep(0);
 }
@@ -62,42 +78,27 @@ void loop()
 // connect wifi and return when connected
 void connectWiFi()
 {
+  Serial.print("connecting to wifi");
   WiFi.mode(WIFI_STA);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
   while (WiFi.status() != WL_CONNECTED)
   {
-    delay(100);
+    Serial.print('.');
+    delay(500);
   }
-}
 
-// Gets the current time from NTP, prints it on serial
-// Returns a time stamp
-char *getTime() {
-  strDateTime currentDate;
-  currentDate = NTP.getTime(1.0, 1);
-  NTP.printDateTime(currentDate);
-
-  char timestamp[64];
-  sprintf(timestamp,"%04i;%02d;%02d;%02d;%02d;%02d", currentDate.year, currentDate.day, currentDate.month, currentDate.hour, currentDate.minute, currentDate.second);
-
-  return timestamp;
+  Serial.println(" - connection successful");
 }
 
 // Posts timestamp and unique id from device to phant service
-// Returns 1 on success
-int postToPhant(char timeStamp[])
+void postToPhant()
 {
   // LED turns on when we enter, it'll go off when we
   // successfully post.
   digitalWrite(BUILTIN_LED, HIGH);
 
-  // Declare an object from the Phant library - phant
-  // Gets its information from config.h
-  Phant phant(PHANT_HOST, PUBLIC_KEY, PRIVATE_KEY);
-
-  // Do a little work to get a unique-ish name. Append the
-  // last two bytes of the MAC (HEX'd) to "Thing-":
+  // get unique identifier by MAC of posting device
   uint8_t mac[WL_MAC_ADDR_LENGTH];
   WiFi.macAddress(mac);
   String macID = String(mac[WL_MAC_ADDR_LENGTH - 2], HEX) +
@@ -105,29 +106,35 @@ int postToPhant(char timeStamp[])
   macID.toUpperCase();
   String postedID = "wemos-" + macID;
 
-  // add ID and timestamp string
-  phant.add("id", postedID);
-  phant.add("timestamp", timeStamp);
-
-  // connect
+  // Use WiFiClient class to create TCP connections
   WiFiClient client;
-  if (!client.connect(PHANT_HOST, PHANT_PORT))
-  {
-    // If we fail to connect, return 0.
-    return 0;
+  const int httpPort = 80;
+  if (!client.connect(PHANT_HOST, PHANT_PORT)) {
+    Serial.println("connection failed");
+    return;
   }
   
-  // If we successfully connected, print our Phant post:
-  client.print(phant.post());
-
-  // Read all the lines of the reply from server and print them to Serial
-  while (client.available()) {
-    String line = client.readStringUntil('\r');
-    Serial.print(line);
-  }
+  // We now create a URI for the request
+  String url = "/input/";
+  url += PUBLIC_KEY;
+  url += "?private_key=";
+  url += PRIVATE_KEY;
+  url += "&id=";
+  url += postedID;
+  url += "&feedtime=";
+  url += timestamp;
+  
+  Serial.print("Requesting URL: ");
+  Serial.println(url);
+  
+  // This will send the request to the server
+  client.print(String("GET ") + url + " HTTP/1.1\r\n" +
+               "Host: " + PHANT_HOST + "\r\n" + 
+               "Connection: close\r\n\r\n");
+  delay(10);
+    
+  Serial.println("closing connection");
 
   // Before we exit, turn the LED off.
   digitalWrite(BUILTIN_LED, LOW);
-
-  return 1;
 }

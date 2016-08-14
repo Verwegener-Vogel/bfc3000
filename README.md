@@ -122,6 +122,16 @@ there are not time critical libraries used.
 Using [this instruction](https://learn.sparkfun.com/tutorials/openlog-hookup-guide) you should update to the newest
 firmware. It is required to use full FAT32 formatted cards.
 
+###Modifications to hardware, software and libs for ESP8266 version
+
+####IoT Service
+
+For easier logging and saving in complexity and hardware parts a IoT service is used. (http://data.sparkfun.com) is used
+by this sketch. The service is a RESTful web service and I recommend using the GET method.
+
+Sparkfun has a in build time stamp functionality. With this feature enable there is even room to scrap the SNTP and use
+the web service's time. The ESP sketch uses both variants.
+
 ###Schematics for 328 version###
 Downloadable from [this repository](bfc3000_atmega328.fzz). The software used is free and called [Fritzing](http://fritzing.org).
 Not in best shape as there is only one board produced until now.
@@ -167,4 +177,3 @@ TBD
 
 ###External Libraries
 [SNTPtime](http://github.org/SensorsIot/SNTPtime)
-[Phant](https://github.com/sparkfun/phant-arduino)

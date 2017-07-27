@@ -1,14 +1,14 @@
 # bfc3000
-##Watch and analyze your [local wild bird's](https://upload.wikimedia.org/wikipedia/commons/8/86/Eurasian_blue_tit_Lancashire.jpg) eating habits
+## Watch and analyze your [local wild bird's](https://upload.wikimedia.org/wikipedia/commons/8/86/Eurasian_blue_tit_Lancashire.jpg) eating habits
 ![Overview](https://github.com/barde/bfc3000/raw/master/overview.png)
 
-###Aim 
+### Aim 
 Writing a time stamp over multi week time frames. Timestamped entries are written by wild bird's setting off a motion
 sensor. The timestamps are made up into some kind of diagrams or other visualization.
 The device is power independent through piggybacking on a solar charged battery powered movement detection LED array.
 Total cost should be below $50.
 
-###Usage
+### Usage
 
 You need to check out this repo first:
 
@@ -49,7 +49,7 @@ However, before you compile this sketch you need to create a file
 You have to chose a hardware platform:
 
 
-###Different versions and technologies
+### Different versions and technologies
 
 There are two different versions of this project. It evolved after I got from the prototype to a soldered and fixed
 part. The main reasons were the expanded capabilities of the ESP8266. I could save some hardware parts, too.
@@ -58,7 +58,7 @@ Todo: More description about:
 Atmel328 with additional hardware for timekeeping and logfile saving local saving version vs ESP8266 with IoT webservice
 connection and on board SNTP.
 
-###Used hardware for Atmel 328 version
+### Used hardware for Atmel 328 version
 |Hardware|Note|Price|My Source|
 |--------|-----------|----:|------|                                                                                                                                                                                                                  
 |PIR sensor|low active so possible to mock with a push button |$1|[Aliexpress](http://www.aliexpress.com/item/1pcs-High-Quality-HC-SR501-Infrared-PIR-Motion-Sensor-Module-For-Arduino-Raspberry-pi/32558562655.html) |
@@ -71,7 +71,7 @@ connection and on board SNTP.
 
 Expect some soldering for the headers and connections.
 
-###Used hardware for ESP8266 version
+### Used hardware for ESP8266 version
 |Hardware|Note|Price|My Source|
 |--------|-----------|----:|------|                                                                                                                                                                                                                  
 |PIR sensor|low active so possible to mock with a push button |$1|[Aliexpress](http://www.aliexpress.com/item/1pcs-High-Quality-HC-SR501-Infrared-PIR-Motion-Sensor-Module-For-Arduino-Raspberry-pi/32558562655.html) |
@@ -92,38 +92,38 @@ channel](https://www.youtube.com/channel/UCu7_D0o48KbfhpEohoP7YSQ) in combinatio
 For a future improvement the upcoming [ESP32](https://espressif.com/en/products/hardware/esp32/overview) will 
 probably be used in combination with the BLE for more power saving.
 
-###Modifications to hardware, software and libs
+### Modifications to hardware, software and libs
 
-####Parasitic casing and power source
+#### Parasitic casing and power source
 
 Gut the solar LED lamp and solder a connector for easy access from the step up converter to 5V.
 As the sensors utilize 5V I keep the power on two separate rails on my perfboard.
 
-###Modifications to hardware, software and libs for 328 version
+### Modifications to hardware, software and libs for 328 version
 
-####Connector on base board
+#### Connector on base board
 
 The OpenLog and TinyRTC modules are plugged directly from their female header into a male socket. This puts stability
 and reduces cable clutter in the case.
 
-####ICSP header
+#### ICSP header
 
 Even the small space on the board leaves some place for a 6 pin ICSP connector for later reprogramming.
 
-####Using the on-chip 8 MHz oscillator
+#### Using the on-chip 8 MHz oscillator
 
 Some tweaking allow to save the external 16Mhz oscillator.
 [This](https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard) 
 tutorial was tested successfully. There are sources claiming major power saving. No draw backs with this project as
 there are not time critical libraries used.
 
-####Firmware update for the OpenLog
+#### Firmware update for the OpenLog
 Using [this instruction](https://learn.sparkfun.com/tutorials/openlog-hookup-guide) you should update to the newest
 firmware. It is required to use full FAT32 formatted cards.
 
-###Modifications to hardware, software and libs for ESP8266 version
+### Modifications to hardware, software and libs for ESP8266 version
 
-####IoT Service
+#### IoT Service
 
 For easier logging and saving in complexity and hardware parts a IoT service is used. (http://data.sparkfun.com) is used
 by this sketch. The service is a RESTful web service and I recommend using the GET method.
@@ -131,22 +131,22 @@ by this sketch. The service is a RESTful web service and I recommend using the G
 Sparkfun has a in build time stamp functionality. With this feature enable there is even room to scrap the SNTP and use
 the web service's time. The ESP sketch uses both variants.
 
-####Nearest NTP server
+#### Nearest NTP server
 
 For best results you should change the NTP server pool to your nearest location. The default is the German NTP pool.
 
-###Schematics for 328 version###
+### Schematics for 328 version ###
 Downloadable from [this repository](bfc3000_atmega328.fzz). The software used is free and called [Fritzing](http://fritzing.org).
 Not in best shape as there is only one board produced until now.
 
 ![Schematics](bfc3000_atmega328_bb.png)
 
-###Schematics for ESP8266 version###
+### Schematics for ESP8266 version ###
 Downloadable from [this repository](bfc3000_wemos.fzz).
 
 ![Schematics](bfc3000_wemos_bb.png)
 
-###Prototype
+### Prototype
 ![Prototype with ATMEGA2560 boad](prototype.jpg)
 
 Using an ATMEGA2560 for prototyping has the big improvement of multiple serial ports. One for debugging and other for
@@ -165,23 +165,23 @@ After flashing it flawlessly wrote to the full sized FAT32 partitioned card.
 Putting the board into production was not considered due to the price limit of this project. After a manual setup on a
 permaboard the author switched to a WeMos with shield. Reasons were the improved capabilities and some saved parts.
 
-###Power supply
+### Power supply
 Due to its size and small expected power consumption it is fit to be powered by a 1.2V NiMh battery. For power
 harvesting I reuse a small [solar powered lamp with an included rechargable
 battery](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Light-Sensor-Waterproof-Outdoor-Fence-Garden-Pathway-Wall-Lamp/32456071230.html).
 Quite nice for $3 as there is lavish space inside for my own sensors and the board. The casing seems
 watertight. I put the step up converter in parallel to the battery and used some left over JST connectors.
 
-###Power consumption during runtime
+### Power consumption during runtime
 TBD
 
-###Power consumption during sleep
+### Power consumption during sleep
 TBD
 
-###External Libraries
+### External Libraries
 [SNTPtime](http://github.org/SensorsIot/SNTPtime)
 
-###Demo
+### Demo
 
 An timezone adjusted output stream is available
 [here](https://data.sparkfun.com/output/jqyY35p6V6COWKOw8q8o?timezone=Europe/Berlin).

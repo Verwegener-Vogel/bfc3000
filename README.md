@@ -172,16 +172,10 @@ battery](http://www.aliexpress.com/item/New-Arrival-Solar-Power-Panel-6-LED-Ligh
 Quite nice for $3 as there is lavish space inside for my own sensors and the board. The casing seems
 watertight. I put the step up converter in parallel to the battery and used some left over JST connectors.
 
-### Power consumption during runtime
-TBD
-
-### Power consumption during sleep
-TBD
-
 ### External Libraries
-[SNTPtime](http://github.org/SensorsIot/SNTPtime)
+[SNTPtime](http://github.com/SensorsIot/SNTPtime)
 
 ### Demo
 
-An timezone adjusted output stream is available
+An old output stream for comparing your results is available
 [here](https://data.sparkfun.com/output/jqyY35p6V6COWKOw8q8o?timezone=Europe/Berlin).

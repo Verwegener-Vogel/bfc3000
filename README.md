@@ -179,3 +179,6 @@ watertight. I put the step up converter in parallel to the battery and used some
 
 An old output stream for comparing your results is available
 [here](https://data.sparkfun.com/output/jqyY35p6V6COWKOw8q8o?timezone=Europe/Berlin).
+
+### Publisher
+Part of the projects which are created by: Verwegener Vogel e.V. , a society of bird-loving-people 
